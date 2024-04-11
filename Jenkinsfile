@@ -10,7 +10,7 @@ pipeline {
         
         stage('Terraform Init') {
             steps {
-                dir("${WORKSPACE}/terraform-jenkins") {
+                dir("${WORKSPACE}") {
                     sh 'echo $PATH'
                     sh 'terraform init'
                 }
