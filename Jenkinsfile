@@ -15,7 +15,7 @@ pipeline {
                 dir('/home/einfochips/jenkins_home/workspace/terraform-jenkins') {
                 // Initialize the Terraform working directory
                 sh '''
-                choown $USER:$USER .
+                chown $USER:$USER .
                 cd /home/einfochips/jenkins_home/workspace/terraform-jenkins 
                 echo $PATH
                 ls -alh && pwd
