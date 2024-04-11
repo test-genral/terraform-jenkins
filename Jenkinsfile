@@ -11,7 +11,7 @@ pipeline {
         
         stage('Terraform Init') {
             steps {
-                // Change directory to the workspace directory
+                // Change directory to the Terraform code directory
                 dir("${WORKSPACE}/terraform-jenkins") {
                     // Initialize the Terraform working directory
                     sh 'terraform init'
