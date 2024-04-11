@@ -11,10 +11,10 @@ pipeline {
         
         stage('Terraform Init') {
             steps {
-                // Change directory to the Terraform code directory
-                dir('/home/einfochips/jenkins_home/workspace/terraform-jenkins') {
+                // Change directory to the workspace directory
+                dir("${WORKSPACE}/terraform-jenkins") {
                     // Initialize the Terraform working directory
-                    sh 'printenv'
+                    sh 'terraform init'
                 }
             }
         }
