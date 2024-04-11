@@ -13,12 +13,8 @@ pipeline {
             steps {
                 // Change directory to the Terraform code directory
                 dir('/home/einfochips/jenkins_home/workspace/terraform-jenkins') {
-                // Initialize the Terraform working directory
-                sh '''
-                cd /home/einfochips/jenkins_home/workspace/terraform-jenkins 
-                printenv()
-                
-                '''
+                    // Initialize the Terraform working directory
+                    sh 'printenv'
                 }
             }
         }
