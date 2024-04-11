@@ -1,11 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-        // Set the PATH variable to include the directory where Terraform is installed
-        PATH = "/home/einfochips/terraform:${env.PATH}"
-    }
-
     stages {
         stage('Checkout') {
             steps {
@@ -16,22 +11,31 @@ pipeline {
         
         stage('Terraform Init') {
             steps {
-                // Initialize the Terraform working directory
-                sh 'terraform init'
+                // Change directory to the Terraform code directory
+                dir('/home/einfochips/jenkins_home/workspace/terraform-jenkins') {
+                    // Initialize the Terraform working directory
+                    sh 'terraform init'
+                }
             }
         }
         
         stage('Terraform Plan') {
             steps {
-                // Generate and display an execution plan for Terraform
-                sh 'terraform plan -out=tfplan'
+                // Change directory to the Terraform code directory
+                dir('/home/einfochips/jenkins_home/workspace/terraform-jenkins') {
+                    // Generate and display an execution plan for Terraform
+                    sh 'terraform plan -out=tfplan'
+                }
             }
         }
         
         stage('Terraform Apply') {
             steps {
-                // Apply the Terraform execution plan to create or update infrastructure
-                sh 'terraform apply -auto-approve tfplan'
+                // Change directory to the Terraform code directory
+                dir('/home/einfochips/jenkins_home/workspace/terraform-jenkins') {
+                    // Apply the Terraform execution plan to create or update infrastructure
+                    sh 'terraform apply -auto-approve tfplan'
+                }
             }
         }
     }
