@@ -15,8 +15,7 @@ pipeline {
                 dir('/var/jenkins_home/workspace/terraform-jenkins') {
                     // Initialize the Terraform working directory
                     sh '''
-                    which terraform
-
+                    sudo chmod +x /usr/bin/terraform 
                     /var/jenkins_home/workspace/terraform-jenkins terraform init
                     
                     '''
