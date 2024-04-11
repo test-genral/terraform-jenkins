@@ -1,12 +1,16 @@
 pipeline {
     agent any
 
+    environment {
+        // Set the PATH variable to include the directory where Terraform is installed
+        PATH = "/home/einfochips/terraform:${env.PATH}"
+    }
+
     stages {
         stage('Checkout') {
             steps {
                 // Checkout the Terraform code from your GitHub repository
                 git branch: 'main', url: 'https://github.com/test-genral/terraform-jenkins.git'
-                sh 'ls -lah && pwd'
             }
         }
         
