@@ -15,7 +15,8 @@ pipeline {
                 dir('/var/jenkins_home/workspace/terraform-jenkins') {
                     // Initialize the Terraform working directory
                     sh '''
-                    /path/to/terraform init
+                    /var/jenkins_home/workspace/terraform-jenkins terraform init
+                    pwd 
                     '''
                 }
             }
