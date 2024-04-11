@@ -16,14 +16,7 @@ pipeline {
                 // Initialize the Terraform working directory
                 sh '''
                 cd /home/einfochips/jenkins_home/workspace/terraform-jenkins 
-                echo $PATH
-                which terraform
-                printenv
-
-                // ls -alh && pwd
-                // terraform init
-                // terraform plan -out=tfplan
-                // terraform apply -auto-approve tfplan
+                printenv()
                 
                 '''
                 }
