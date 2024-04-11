@@ -6,6 +6,7 @@ pipeline {
             steps {
                 // Checkout the Terraform code from your GitHub repository
                 git branch: 'main', url: 'https://github.com/test-genral/terraform-jenkins.git'
+                sh 'ls -lah && pwd'
             }
         }
         
