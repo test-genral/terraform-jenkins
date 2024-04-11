@@ -15,13 +15,15 @@ pipeline {
                 dir('/home/einfochips/jenkins_home/workspace/terraform-jenkins') {
                 // Initialize the Terraform working directory
                 sh '''
-                chown $USER:$USER .
                 cd /home/einfochips/jenkins_home/workspace/terraform-jenkins 
                 echo $PATH
+                which terraform
+                
                 ls -alh && pwd
                 terraform init
                 terraform plan -out=tfplan
                 terraform apply -auto-approve tfplan
+                
                 '''
                 }
             }
