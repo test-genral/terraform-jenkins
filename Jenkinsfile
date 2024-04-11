@@ -18,11 +18,12 @@ pipeline {
                 cd /home/einfochips/jenkins_home/workspace/terraform-jenkins 
                 echo $PATH
                 which terraform
-                
-                ls -alh && pwd
-                terraform init
-                terraform plan -out=tfplan
-                terraform apply -auto-approve tfplan
+                printenv
+
+                // ls -alh && pwd
+                // terraform init
+                // terraform plan -out=tfplan
+                // terraform apply -auto-approve tfplan
                 
                 '''
                 }
