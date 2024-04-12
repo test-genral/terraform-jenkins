@@ -17,8 +17,8 @@ pipeline {
                     sh '''
                     whoami
                     chown root:root /var/jenkins_home/workspace/terraform-jenkins/*
+                    chmod 777 /var/jenkins_home/workspace/terraform-jenkins/*
                     /var/jenkins_home/workspace/terraform-jenkins terraform init
-                    
                     '''
                 }
             }
