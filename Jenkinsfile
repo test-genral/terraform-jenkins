@@ -14,12 +14,11 @@ pipeline {
                 // Change directory to the Terraform code directory
                 dir('/var/jenkins_home/workspace/terraform-jenkins') {
                     // Initialize the Terraform working directory
-                    sh '''
-                    whoami
-                    chown root:root /var/jenkins_home/workspace/terraform-jenkins/*
-                    chmod 777 /var/jenkins_home/workspace/terraform-jenkins/*
-                    /var/jenkins_home/workspace/terraform-jenkins terraform init
-                    '''
+                    def res = sh '''
+                            cd terraform/Yocto-Build-Agent
+                            terraform init
+                            terraform apply -auto-approve"
+                        '''
                 }
             }
         }
