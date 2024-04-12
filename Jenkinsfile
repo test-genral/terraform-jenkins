@@ -17,7 +17,7 @@ pipeline {
                     script {
                         // Execute the commands inside a script block
                         def res = sh '''
-                            cd terraform/Yocto-Build-Agent
+                            cd /var/jenkins_home/workspace/terraform-jenkins
                             terraform init
                             terraform apply -auto-approve
                         '''
